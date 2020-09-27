@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.account.login.LoginFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ng.myflex.telehost.ui.account.login.LoginViewModel" />
+
+        <variable
+            name="validation"
+            type="com.basgeekball.awesomevalidation.AwesomeValidation" />
+
+        <variable
+            name="loading"
+            type="Boolean" />
+
+        <variable
+            name="error"
+            type="String" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackground"
+            android:gravity="center_horizontal">
+
+            <include
+                layout="@layout/form_login"
+                android:layout_width="@dimen/abc_panel_menu_list_width"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                app:error="@{error}"
+                app:loading="@{loading}"
+                app:validation="@{validation}"
+                app:viewModel="@{viewModel}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/spacing_large"
+                android:paddingTop="@dimen/spacing_xlarge"
+                android:paddingRight="@dimen/spacing_large"
+                android:paddingBottom="@dimen/spacing_xlarge">
+
+                <TextView
+                    style="@style/Text.Body2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dont_have_account"
+                    android:textColor="@color/colorTextMuted" />
+
+                <TextView
+                    android:id="@+id/register"
+                    style="@style/Text.Body2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="@dimen/spacing_medium"
+                    android:text="@string/title_register"
+                    android:textColor="@color/colorTextAction"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

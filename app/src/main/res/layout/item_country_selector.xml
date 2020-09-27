@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="ng.myflex.telehost.common.binding.PhoneBinding" />
+
+        <variable
+            name="field"
+            type="ng.myflex.telehost.form.field.PhoneField" />
+
+        <variable
+            name="loading"
+            type="Boolean" />
+
+        <variable
+            name="validation"
+            type="com.basgeekball.awesomevalidation.AwesomeValidation" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <br.com.sapereaude.maskedEditText.MaskedEditText
+            android:id="@+id/et_phone"
+            style="@style/TextInput"
+            android:ems="10"
+            android:enabled="@{!loading}"
+            android:hint="@string/phone_placeholder"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@={field.phone}"
+            app:allowed_chars="1234567890"
+            app:country="@{field.country}"
+            app:error="@{@string/phoneRule}"
+            app:keep_hint="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:mask="+7 ### ### ####"
+            app:validate="@{validation}" />
+
+        <ng.myflex.telehost.widget.CountryCoordinator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="@{!loading}"
+            app:layout_constraintBottom_toBottomOf="@+id/et_phone"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/et_phone"
+            app:onCountrySelected="@{(code) -> field.onCountrySelected(code)}">
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/picker"
+                android:layout_width="@dimen/abc_action_button_min_width_material"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:enabled="@{!loading}"
+                android:translationX="6dp"
+                app:ccp_autoDetectCountry="true"
+                app:ccp_hintExampleNumber="true"
+                app:ccp_selectionMemoryTag="getFullNumber"
+                app:ccp_showArrow="false"
+                app:ccp_showNameCode="false"
+                app:ccp_showPhoneCode="false" />
+        </ng.myflex.telehost.widget.CountryCoordinator>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

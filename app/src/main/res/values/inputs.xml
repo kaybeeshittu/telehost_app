@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextInput">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/edit_text</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textColorHint">@color/colorBorder</item>
+        <item name="android:fontFamily">@font/body_font</item>
+        <item name="android:textSize">@dimen/abc_text_size_menu_material</item>
+        <item name="android:paddingTop">@dimen/abc_action_bar_content_inset_material</item>
+        <item name="android:paddingBottom">@dimen/abc_action_bar_content_inset_material</item>
+    </style>
+</resources>

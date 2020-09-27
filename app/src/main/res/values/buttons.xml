@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Button" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/body_font</item>
+        <item name="android:textSize">@dimen/abc_text_size_subtitle_material_toolbar</item>
+        <item name="android:paddingTop">@dimen/abc_action_bar_content_inset_material</item>
+        <item name="android:paddingBottom">@dimen/abc_action_bar_content_inset_material</item>
+
+        <item name="shapeAppearance">@style/ButtonAppearance</item>
+    </style>
+
+    <style name="Button.Small" parent="Button">
+        <item name="android:textSize">@dimen/abc_text_size_caption_material</item>
+        <item name="android:paddingTop">@dimen/abc_action_bar_overflow_padding_end_material</item>
+        <item name="android:paddingBottom">@dimen/abc_action_bar_overflow_padding_end_material
+        </item>
+
+        <item name="shapeAppearance">@style/SmallButtonAppearance</item>
+    </style>
+
+    <style name="Button.Outline" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/body_font</item>
+        <item name="android:textSize">@dimen/abc_text_size_subtitle_material_toolbar</item>
+        <item name="android:paddingTop">@dimen/abc_action_bar_content_inset_material</item>
+        <item name="android:paddingBottom">@dimen/abc_action_bar_content_inset_material</item>
+
+        <item name="strokeWidth">2dp</item>
+        <item name="shapeAppearance">@style/ButtonAppearance</item>
+    </style>
+
+    <style name="Button.Outline.Small" parent="Button.Outline">
+        <item name="android:textSize">@dimen/abc_text_size_caption_material</item>
+        <item name="android:paddingTop">@dimen/abc_action_bar_overflow_padding_end_material</item>
+        <item name="android:paddingBottom">@dimen/abc_action_bar_overflow_padding_end_material
+        </item>
+
+        <item name="shapeAppearance">@style/SmallButtonAppearance</item>
+    </style>
+
+    <style name="ButtonAppearance">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSize">@dimen/spacing_xmiddle</item>
+    </style>
+
+    <style name="SmallButtonAppearance">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSize">@dimen/spacing_xmedium</item>
+    </style>
+
+    <style name="Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/colorTextAction</item>
+    </style>
+
+    <style name="Button.Primary" parent="Button">
+        <item name="android:textColor">@color/colorBackground</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+    </style>
+
+    <style name="Button.Primary.Small" parent="Button.Small">
+        <item name="android:textColor">@color/colorBackground</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+    </style>
+
+    <style name="Button.Accent" parent="Button">
+        <item name="android:textColor">@color/colorBackground</item>
+        <item name="backgroundTint">@color/colorAccent</item>
+    </style>
+
+    <style name="Button.Accent.Small" parent="Button.Small">
+        <item name="android:textColor">@color/colorBackground</item>
+        <item name="backgroundTint">@color/colorAccent</item>
+    </style>
+
+    <style name="Button.Gray" parent="Button">
+        <item name="android:textColor">@color/grey_40</item>
+        <item name="backgroundTint">@color/grey_5</item>
+    </style>
+
+    <style name="Button.Outline.Gray" parent="Button.Outline">
+        <item name="android:textColor">@color/colorTextAction</item>
+        <item name="strokeColor">@color/grey_5</item>
+    </style>
+
+    <style name="Button.Outline.Gray.Small" parent="Button.Outline.Small">
+        <item name="android:textColor">@color/colorTextAction</item>
+        <item name="strokeColor">@color/grey_10</item>
+    </style>
+</resources>

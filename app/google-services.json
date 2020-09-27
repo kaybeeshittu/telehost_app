@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "826266578055",
+    "firebase_url": "https://telehost-c2755.firebaseio.com",
+    "project_id": "telehost-c2755",
+    "storage_bucket": "telehost-c2755.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826266578055:android:72421147fb59ef4ebfdc22",
+        "android_client_info": {
+          "package_name": "com.telehost.gateway"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "826266578055-4ou1n8leaqmddtq990d4r1ljr5rv74ob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDREKURP9opGB0VSH8wVMrZBbPIKXChHr4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "826266578055-4ou1n8leaqmddtq990d4r1ljr5rv74ob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

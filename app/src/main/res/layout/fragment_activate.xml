@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.account.activate.ActivateFragment">
+
+    <data>
+
+        <import type="ng.myflex.telehost.common.binding.EditTextBinding" />
+
+        <import type="ng.myflex.telehost.common.binding.LoadButtonBinding" />
+
+        <variable
+            name="viewModel"
+            type="ng.myflex.telehost.ui.account.activate.ActivateViewModel" />
+
+        <variable
+            name="validation"
+            type="com.basgeekball.awesomevalidation.AwesomeValidation" />
+
+        <variable
+            name="loading"
+            type="Boolean" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:elevation="0dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorBackground"
+                app:contentInsetStartWithNavigation="0dp"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/Toolbar.Light"
+                app:titleTextAppearance="@style/Toolbar.Title"
+                app:titleTextColor="@color/colorTextAction" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackgroundDarker"
+            android:clipToPadding="false"
+            android:scrollbars="none"
+            android:scrollingCache="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_large" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBackground"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/spacing_mlarge"
+                    android:paddingRight="@dimen/spacing_mlarge">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_smlarge"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_queue"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/colorTextAction"
+                            app:fontFamily="sans-serif-medium" />
+
+                        <TextView
+                            android:id="@+id/jobs"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_medium"
+                            android:layout_weight="1"
+                            android:text="@string/text_empty"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/colorTextAction"
+                            app:fontFamily="sans-serif-medium" />
+
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/app_name"
+                            android:onClick="@{(v) -> viewModel.clearTasks()}"
+                            android:src="@drawable/ic_clear_black_24dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/device_hash"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_smlarge"
+                        android:text="@string/text_duration"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/colorTextAction"
+                        app:fontFamily="sans-serif-medium" />
+
+                    <TextView
+                        android:id="@+id/device_token"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_smlarge"
+                        android:text="@string/text_duration"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/colorTextAction"
+                        app:fontFamily="sans-serif-medium" />
+
+                    <include
+                        android:id="@+id/phone"
+                        layout="@layout/item_country_selector"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_smlarge"
+                        app:field="@{viewModel.form.phoneField}"
+                        app:loading="@{loading}"
+                        app:validation="@{validation}" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_large" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/spacing_smlarge"
+                        android:paddingBottom="@dimen/spacing_smlarge">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/text_duration"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/colorTextAction"
+                            app:fontFamily="sans-serif-medium" />
+
+                        <View
+                            android:layout_width="@dimen/spacing_middle"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/text_sim_slot"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/colorTextAction"
+                            app:fontFamily="sans-serif-medium" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/spacing_mlarge">
+
+                        <ng.myflex.telehost.widget.TouchView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:enabled="@{!loading}"
+                            android:paddingRight="@dimen/spacing_xmiddle">
+
+                            <RadioGroup
+                                android:id="@+id/rg_duration"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </ng.myflex.telehost.widget.TouchView>
+
+                        <View
+                            android:layout_width="@dimen/spacing_middle"
+                            android:layout_height="0dp" />
+
+                        <ng.myflex.telehost.widget.TouchView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:enabled="@{!loading}"
+                            android:paddingRight="@dimen/spacing_xmiddle">
+
+                            <RadioGroup
+                                android:id="@+id/rg_sim"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </ng.myflex.telehost.widget.TouchView>
+
+                        <View
+                            android:layout_width="@dimen/spacing_medium"
+                            android:layout_height="0dp" />
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_large">
+
+                        <Button
+                            android:id="@+id/btn_activate"
+                            style="@style/Button.Accent.Borderless"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/btn_dark"
+                            android:enabled="@{!loading}"
+                            android:text="@string/text_bt_activate"
+                            android:textColor="@color/colorBackground" />
+
+                        <ProgressBar
+                            android:id="@+id/progress_bar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:visibility="invisible" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_large" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>

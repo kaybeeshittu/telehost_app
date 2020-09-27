@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.dashboard.DashboardFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ng.myflex.telehost.ui.dashboard.DashboardViewModel" />
+
+        <variable
+            name="account"
+            type="ng.myflex.telehost.domain.Account" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundDarker"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:scrollbars="none"
+            android:scrollingCache="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_large" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBackground"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/spacing_mlarge"
+                        android:paddingTop="@dimen/spacing_large"
+                        android:paddingRight="@dimen/spacing_mlarge"
+                        android:paddingBottom="@dimen/spacing_medium">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/general_overview_title"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorTextAction" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="@dimen/spacing_large"
+                            android:background="@color/colorSeparator" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/spacing_mlarge"
+                        android:paddingRight="@dimen/spacing_mlarge">
+
+                        <include
+                            layout="@layout/item_overview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:layout_marginBottom="@dimen/spacing_large"
+                            android:layout_weight="1"
+                            app:description="@{@string/wallet_description}"
+                            app:title="@{@string/wallet_title}"
+                            app:value="@{`NGN ` + String.valueOf(account.balance)}" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/spacing_mlarge"
+                            android:layout_marginRight="@dimen/spacing_mlarge"
+                            android:layout_marginBottom="@dimen/spacing_medium"
+                            android:background="@color/colorSeparator" />
+
+                        <include
+                            layout="@layout/item_overview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:layout_marginBottom="@dimen/spacing_large"
+                            android:layout_weight="1"
+                            app:description="@{@string/routes_description}"
+                            app:title="@{@string/routes_title}"
+                            app:value="@{String.valueOf(viewModel.routeCount)}" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_large" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBackground"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/spacing_mlarge"
+                        android:paddingTop="@dimen/spacing_large"
+                        android:paddingRight="@dimen/spacing_mlarge"
+                        android:paddingBottom="@dimen/spacing_medium">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/transaction_overview_title"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorTextAction" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="@dimen/spacing_large"
+                            android:background="@color/colorSeparator" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/spacing_mlarge"
+                        android:paddingRight="@dimen/spacing_mlarge">
+
+                        <include
+                            layout="@layout/item_overview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:layout_marginBottom="@dimen/spacing_large"
+                            android:layout_weight="1"
+                            app:description="@{@string/ussd_description}"
+                            app:title="@{@string/ussd_title}"
+                            app:value="@{String.valueOf(viewModel.ussdCount)}" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/spacing_mlarge"
+                            android:layout_marginRight="@dimen/spacing_mlarge"
+                            android:layout_marginBottom="@dimen/spacing_medium"
+                            android:background="@color/colorSeparator" />
+
+                        <include
+                            layout="@layout/item_overview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:layout_marginBottom="@dimen/spacing_large"
+                            android:layout_weight="1"
+                            app:description="@{@string/sms_description}"
+                            app:title="@{@string/sms_title}"
+                            app:value="@{String.valueOf(viewModel.smsCount)}" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

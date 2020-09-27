@@ -1,0 +1,162 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'com.google.firebase.crashlytics'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    defaultConfig {
+        applicationId "com.telehost.gateway"
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 12
+        versionName "2.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding.enabled = true
+    packagingOptions {
+        exclude 'META-INF/AL2.0'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$androidx_compact_version"
+    implementation "androidx.core:core-ktx:$androidx_version"
+    implementation "androidx.constraintlayout:constraintlayout:$androidx_constraint_version"
+
+    // Google material
+    implementation "com.google.android.material:material:$google_material_version"
+
+    // Lifecycle
+    implementation "androidx.legacy:legacy-support-v4:$legacy_support_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$arch_lifecycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$arch_lifecycle"
+
+    // Coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+
+    // Room
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // Paging
+    implementation "androidx.paging:paging-runtime:$paging_version"
+
+    // Gson
+    implementation "com.google.code.gson:gson:$gson_version"
+
+    // OkHttp
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
+    implementation 'com.github.NaikSoftware:StompProtocolAndroid:1.6.4'
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit2_version"
+
+    // Worker
+    implementation "androidx.work:work-runtime-ktx:$worker_version"
+
+    // Firebase Messaging
+    implementation "com.google.firebase:firebase-core:$firebase_core_version"
+    implementation "com.google.firebase:firebase-messaging:$firebase_version"
+    implementation "com.google.firebase:firebase-analytics:$firebase_analytics_version"
+
+    // Crashlytics
+    implementation "com.google.firebase:firebase-crashlytics:$firebase_crashlytics_version"
+
+    // Assisted Inject
+    compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:$assisted_inject_verion"
+    kapt "com.squareup.inject:assisted-inject-processor-dagger2:$assisted_inject_verion"
+
+    // Dagger.
+    implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    // Country version
+    implementation "com.hbb20:ccp:$country_selector_version"
+
+    // MaskEdit
+    implementation "ru.egslava:MaskedEditText:$masked_edit_version"
+
+    // Phone number library
+    implementation "io.michaelrocks:libphonenumber-android:$lib_phone_number_version"
+
+    // Awesome Validation
+    implementation "com.basgeekball:awesome-validation:$awesome_validation_version"
+
+    // VoIpUSSD
+    implementation "com.github.k-constantine.VoIpUSSD:ussd-library:$vo_ip_ussd_version"
+
+    // Material ripple
+    implementation "com.balysv:material-ripple:$material_ripple_version"
+
+    // Coroutine test
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+
+    // Worker test
+    androidTestImplementation "androidx.work:work-testing:$worker_version"
+
+    // Assisted Inject test
+    kaptAndroidTest "com.squareup.inject:assisted-inject-processor-dagger2:$assisted_inject_verion"
+
+    // Dagger test
+    kaptAndroidTest "com.google.dagger:dagger-android-processor:$dagger_version"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
+
+    // Mockito
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    androidTestImplementation "org.mockito:mockito-android:$mockito_version"
+
+    // Junit
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.arch.core:core-testing:$androidx_arch"
+    androidTestImplementation "androidx.test.ext:junit:$androidx_junit_ext_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+
+    // Assert
+    testImplementation "org.assertj:assertj-core:$assertJ2_version"
+    androidTestImplementation "org.assertj:assertj-core:$assertJ2_version"
+}
+
+configurations {
+    all*.exclude group: 'com.google.guava', module: 'listenablefuture'
+}

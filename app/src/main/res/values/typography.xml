@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Text" parent="@style/Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/body_font</item>
+        <item name="android:textColor">@color/grey_20</item>
+    </style>
+
+    <style name="Text.Head" parent="Text">
+        <item name="android:textSize">@dimen/abc_text_size_display_2_material</item>
+    </style>
+
+    <style name="Text.Subhead" parent="Text">
+        <item name="android:textSize">@dimen/abc_text_size_title_material</item>
+    </style>
+
+    <style name="Text.Body" parent="Text"></style>
+
+    <style name="Text.Body2" parent="Text">
+        <item name="android:textSize">@dimen/abc_text_size_caption_material</item>
+    </style>
+
+    <style name="Text.Caption" parent="Text">
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="Text.Overline" parent="Text">
+        <item name="android:textSize">9sp</item>
+    </style>
+</resources>
