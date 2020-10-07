@@ -12,3 +12,6 @@
 /captures
 .externalNativeBuild
 .cxx
+.idea/.name
+.idea/jarRepositories.xml
+.idea/codeStyles/Project.xml

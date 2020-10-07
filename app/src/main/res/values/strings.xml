@@ -4,7 +4,7 @@
     <string name="base_url">https://dev.telehost.ng/api/</string>
     <string name="websocker_url">ws://socket.telehost.ng/websocket/</string>
 
-    <string name="notification_key">eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtb2JpbGUiLCJhdXRoIjoiUk9MRV9NRVJDSEFOVCIsImV4cCI6MTYwMDg5OTUwOX0.5B7Py-0RbQrSrREBCc14iwT-H0k-RbYKcDN4EpQ1_mIDD5kfE_RknDnU9BdUxrhCa9QwJfNcwMoOg2PkCqL-Rg</string>
+    <string name="notification_key">eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTYwNDY5ODcwN30.nux8WRZ1Uo6voPhK_8hROhX6jZqnIbp_7j55cZivcoTKV4Jn12MzbZuuyD3JgCHJLRJxYSTRSf1OHi3ajLCS4g</string>
 
     <string name="database">com.telehost.database</string>
 
